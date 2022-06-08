@@ -1,11 +1,13 @@
 import React from "react";
-import NavPanel from "./navPanel";
 import Table from "../components/table"
+import Ticker from "../components/ticker";
+import Tab from "../components/tab";
 
 const Main = () => {
     return (
-        <div className="flex m-3">{/*border-2 border-black*/}
-            <Table/>
+        <div className="flex flex-wrap m-3">{/*border-2 border-black*/}
+            <Ticker/>
+            <Tab/>
         </div>
     );
 }

@@ -2,8 +2,8 @@ import React from "react";
 
 const Table = () => {
     return ( 
-        <div class="w-full overflow-x-auto shadow-md rounded-lg">
-            <div class="p-4">
+        <div class="w-full shadow-md rounded-lg bg-[#f9f8ff] h-screen">
+            <div class="p-4 float-right">
                 <label for="table-search" class="sr-only">Search</label>
                 <div class="relative mt-1">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -38,7 +38,7 @@ const Table = () => {
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="overflow-y-scroll">
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
@@ -108,6 +108,54 @@ const Table = () => {
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                         </td>
                     </tr>
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            Magic Mouse 2
+                        </th>
+                        <td class="px-6 py-4">
+                            Black
+                        </td>
+                        <td class="px-6 py-4">
+                            Accessories
+                        </td>
+                        <td class="px-6 py-4">
+                            $99
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            Magic Mouse 2
+                        </th>
+                        <td class="px-6 py-4">
+                            Black
+                        </td>
+                        <td class="px-6 py-4">
+                            Accessories
+                        </td>
+                        <td class="px-6 py-4">
+                            $99
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
