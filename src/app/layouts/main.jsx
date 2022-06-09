@@ -5,9 +5,9 @@ import Tab from "../components/tab";
 
 const Main = () => {
     return (
-            <>
-                <Ticker/>
-            <div className="overflow-y-scroll h-full">
+        <>
+            <Ticker/>
+            <div className="overflow-y-scroll h-full border-2 border-lime-500">
                 <Tab/>
             </div>
         </>
