@@ -1,6 +1,6 @@
 const Tab = () => {
     return (
-        <table class="table-auto w-full relative">
+        <table class="table-auto w-full">
         <thead>
           <tr>
             <th>Song</th>
@@ -8,8 +8,8 @@ const Tab = () => {
             <th>Year</th>
           </tr>
         </thead>
-        <tbody className="overflow-y-scroll">
-          <tr className="flex w-full">
+        <tbody className="w-full h-full block overflow-y-scroll">
+          <tr className="">
             <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
             <td>Malcolm Lockyer</td>
             <td>1961</td>

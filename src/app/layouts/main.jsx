@@ -5,10 +5,12 @@ import Tab from "../components/tab";
 
 const Main = () => {
     return (
-        <div className="flex flex-wrap m-3">{/*border-2 border-black*/}
-            <Ticker/>
-            <Tab/>
-        </div>
+            <>
+                <Ticker/>
+            <div className="overflow-y-scroll h-full">
+                <Tab/>
+            </div>
+        </>
     );
 }
  
