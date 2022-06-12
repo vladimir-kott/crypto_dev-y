@@ -1,6 +1,6 @@
 const Tab = () => {
     return (
-        <table class="table-auto w-full h-full border-2 border-sky-500">
+        <table class="table-auto w-full  border-2 border-sky-500">
         <thead>
           <tr>
             <th>Song</th>

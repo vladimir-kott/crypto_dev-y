@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <>
             <Ticker/>
-            <div className="overflow-y-scroll h-full border-2 border-lime-500">
+            <div className="overflow-y-scroll h-[calc(100vh-100px)] border-2 border-lime-500">
                 <Tab/>
             </div>
         </>
