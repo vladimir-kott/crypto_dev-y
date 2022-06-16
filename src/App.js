@@ -1,5 +1,5 @@
 import Main from './app/layouts/main';
-import NavPanel from './app/layouts/navPanel';
+import NavPanel from './app/components/navPanel';
 import Ticker from './app/components/ticker';
 import MobileNav from './app/components/mobileNav';
 
