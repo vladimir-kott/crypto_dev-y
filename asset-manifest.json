@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/crypto_dev-y/static/css/main.40216b62.css",
+    "main.js": "/crypto_dev-y/static/js/main.3509d541.js",
+    "static/js/787.2fee3e1a.chunk.js": "/crypto_dev-y/static/js/787.2fee3e1a.chunk.js",
+    "index.html": "/crypto_dev-y/index.html",
+    "main.40216b62.css.map": "/crypto_dev-y/static/css/main.40216b62.css.map",
+    "main.3509d541.js.map": "/crypto_dev-y/static/js/main.3509d541.js.map",
+    "787.2fee3e1a.chunk.js.map": "/crypto_dev-y/static/js/787.2fee3e1a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40216b62.css",
+    "static/js/main.3509d541.js"
+  ]
+}
