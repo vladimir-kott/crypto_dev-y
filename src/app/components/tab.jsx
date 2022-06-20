@@ -6,7 +6,7 @@ const Tab = () => {
 
   
     return (
-        <table class="table-auto w-full border-2 border-sky-500 text-zinc-500">
+        <table className="table-auto w-full border-2 border-sky-500 text-zinc-500">
         <thead>
           <tr>
            <th colSpan="4" className="border-2 border-rose-800" >
