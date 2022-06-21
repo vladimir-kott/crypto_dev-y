@@ -18,25 +18,24 @@ const RegLog = () => {
     };
 
     return ( 
-        <div className="flex flex-col items-center
+        <div className="flex flex-col items-center justify-center
         sus:h-[calc(100vh-130px)] sam:h-[calc(100vh-140px)] scm:h-[calc(100vh-150px)] 
         sxm:h-[calc(100vh-150px)] sm:h-[calc(100vh-100px)]
         bg-gradient-to-tr from-[#fffeff] to-[#e2f3fd]
         rounded-lg shadow-m">
             {formType === "register" ? (<>
-                
                 <RegistrationForm />
-                <p>
-                    Already have account?
-                    <a role="button" onClick={toggleFormType}>
+                <p className="text-zinc-500 mt-5">
+                    Already have account? 
+                    <a className="ml-2 p-1 rounded-sm bg-black text-white" role="button" onClick={toggleFormType}>
                         Sign In
                     </a>
                 </p>
             </>) : (<>
             <LoginForm />
-            <p>
+            <p className="text-zinc-500 mt-5">
                 Dont have account?
-                <a role="button" onClick={toggleFormType}>
+                <a className="ml-2 p-1 rounded-sm bg-black text-white" role="button" onClick={toggleFormType}>
                     Sign Up
                 </a>
             </p>

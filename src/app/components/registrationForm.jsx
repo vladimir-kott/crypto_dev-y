@@ -77,7 +77,7 @@ const RegistrationForm = () => {
     };
 
     return (<>
-        <form className="h-full flex flex-col justify-center items-center max-w-sm px-3 w-full" 
+        <form className="flex flex-col justify-center items-center max-w-sm px-3 w-full bg-white shadow-lg rounded-lg py-6" 
             onSubmit={handleSubmit}>
             <p className="text-zinc-500 text-2xl font-bold float-left pl-2 mb-6">Registration</p>
             <div className="mb-6 w-full">
