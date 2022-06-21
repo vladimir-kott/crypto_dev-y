@@ -7,7 +7,7 @@ const TickerComponent = () => {
         setString('Aliquam consequat varius consequat.')
     }, []);
 
-    console.log(string)
+    /*console.log(string)*/
 
     return (
     <div className="flex w-full shrink-0 items-center justify-center text-center shadow-md rounded-lg 

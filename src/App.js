@@ -11,8 +11,9 @@ function App() {
   
   function App() {
     let element = useRoutes([
-      {path: '/', element: <Main />},
       {path: '/auth', element: <RegLog />},
+      {path: '/crypto_dev-y', element: <Main />},
+      {path: '/', element: <Main />}
     ]);
   
     return element;
