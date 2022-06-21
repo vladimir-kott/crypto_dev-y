@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validator } from "../utils/validator";
 
-const RegistrationForm = () => {
+const LoginForm = () => {
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -76,10 +76,11 @@ const RegistrationForm = () => {
         }*/
     };
 
-    return (<>
+
+    return ( <>
         <form className="h-full flex flex-col justify-center items-center max-w-sm px-3 w-full" 
             onSubmit={handleSubmit}>
-            <p className="text-zinc-500 text-2xl font-bold float-left pl-2 mb-6">Registration</p>
+            <p className="text-zinc-500 text-2xl font-bold float-left pl-2 mb-6">Login</p>
             <div className="mb-6 w-full">
                 <label className="block float-left pl-2 text-zinc-500 text-sm font-bold mb-1" htmlFor="username">
                     E-mail
@@ -111,11 +112,11 @@ const RegistrationForm = () => {
             type="submit"
             disabled={!isValid || enterError}
             >
-            Register
+            Sign in
             </button>
         </form>
         </>
     );
 }
  
-export default RegistrationForm;
+export default LoginForm;
