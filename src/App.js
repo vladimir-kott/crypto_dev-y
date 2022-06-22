@@ -1,10 +1,12 @@
 import React from "react";
 import { Route, Routes, Navigate, useRoutes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Main from './app/layouts/main';
 import NavPanel from './app/components/navPanel';
 import TikerComponent from './app/components/ticker';
 import MobileNav from './app/components/mobileNav';
 import RegLog from './app/layouts/regLog'
+import AuthProvider from "./app/hooks/useAuth";
 
 function App() {
 
@@ -21,7 +23,8 @@ function App() {
 
 
 
-  return (
+  return (<div>
+    <AuthProvider>
     <div className="App max-h-screen">
       <div className='flex flex-col items-center h-screen bg-gradient-to-tr from-[#EAECF4] to-[#E6E7FD] border-2 border-black'>
         <div className="box-border flex sam:flex-col sus:flex-col scm:flex-col sxm:flex-col sm:flex-row justify-center items-center gap-x-[5px] w-full max-w-[1920px] border-2 border-black h-full">
@@ -35,6 +38,10 @@ function App() {
           <MobileNav/>
         </div>
       </div>
+    </div>
+    </AuthProvider>
+
+    <ToastContainer />
     </div>
   );
 }

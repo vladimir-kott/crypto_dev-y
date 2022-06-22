@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validator } from "../utils/validator";
+import { useAuth } from "../hooks/useAuth";
 
 const RegistrationForm = () => {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -10,6 +14,8 @@ const RegistrationForm = () => {
 
     const [errors, setErrors] = useState({});
     const [enterError, setEnterError] = useState(null);
+
+    const { signUp } = useAuth();
 
     const handleChange = (item) => {
         setData((prevState) => ({
@@ -62,18 +68,12 @@ const RegistrationForm = () => {
         console.log('reg ', data)
         const isValid = validate();
         if (!isValid) return;
-
-        /*try {
-            await logIn(data);
-
-            history.push(
-                history.location.state
-                    ? history.location.state.from.pathname
-                    : "/"
-            );
+        try {
+            await signUp(data);
+            navigate("/");
         } catch (error) {
-            setEnterError(error.message);
-        }*/
+            setErrors(error);
+        }
     };
 
     return (<>
