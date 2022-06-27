@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { HouseFill, StarFill, SunFill } from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const NavPanel = () => {
     const navigate = useNavigate();
+    const { currentUser } = useAuth();
     const handleHome = async (e) => {
         e.preventDefault();
         try {
@@ -16,7 +18,7 @@ const NavPanel = () => {
     const handleUser = async (e) => {
         e.preventDefault();
         try {
-            navigate("/auth");
+            currentUser ? navigate("/user") : navigate("/auth");
         } catch (error) {
             console.log('router error')
         }

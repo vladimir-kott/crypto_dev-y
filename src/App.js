@@ -10,6 +10,7 @@ import AuthProvider from "./app/hooks/useAuth";
 import ProtectedUserRoute from "./app/components/protectedUserRoute";
 import UserPanel from "./app/components/userPanel";
 import LogOut from "./app/components/logOut";
+import ProtectedAuth from "./app/components/protectedAuth";
 
 function App() {
   return (<div>
@@ -20,10 +21,18 @@ function App() {
         <div className="border-2 border-rose-400 text-center leading-loose text-sm sm:p-[20px] sus:p-[2px] sam:p-[7px] scm:p-[7px] sxm:p-[7px] br-black w-full h-full">
          <TikerComponent/>
           <Routes>
-            <Route path="user" element={<UserPanel />} />
-            <Route index element={<Main />}/>
+            <Route path="user" element={
+              <ProtectedUserRoute>
+                <UserPanel />
+              </ProtectedUserRoute>} 
+            />
+            <Route path="auth" element={
+              <ProtectedAuth>
+                <RegLog />
+              </ProtectedAuth>
+            }/>
             <Route path="logout" element={<LogOut/>} />
-            <Route path="auth" element={<RegLog />} />
+            <Route index element={<Main />}/>
             <Route path="*" element={<p>There's nothing here: 404!</p>} />
           </Routes>
         </div>

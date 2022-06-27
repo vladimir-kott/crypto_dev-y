@@ -71,11 +71,7 @@ const LoginForm = () => {
         try {
             await logIn(data);
             console.log('log in complete')
-            navigate(
-                navigate.location.state
-                    ? navigate.location.state.from.pathname
-                    : "/"
-            );
+            navigate('/user');
             console.log('redirect is compite')
         } catch (error) {
             setEnterError(error.message);
