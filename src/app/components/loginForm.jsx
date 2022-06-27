@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validator } from "../utils/validator";
+import { useAuth } from "../hooks/useAuth";
 
 const LoginForm = () => {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -10,6 +14,8 @@ const LoginForm = () => {
 
     const [errors, setErrors] = useState({});
     const [enterError, setEnterError] = useState(null);
+
+    const { logIn } = useAuth();
 
     const handleChange = (item) => {
         setData((prevState) => ({
@@ -59,21 +65,21 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('reg ', data)
         const isValid = validate();
         if (!isValid) return;
 
-        /*try {
+        try {
             await logIn(data);
-
-            history.push(
-                history.location.state
-                    ? history.location.state.from.pathname
+            console.log('log in complete')
+            navigate(
+                navigate.location.state
+                    ? navigate.location.state.from.pathname
                     : "/"
             );
+            console.log('redirect is compite')
         } catch (error) {
             setEnterError(error.message);
-        }*/
+        }
     };
 
 
@@ -91,7 +97,8 @@ const LoginForm = () => {
                     type="text"
                     value={data.name} 
                     placeholder="E-mail"
-                    onChange={handleChange}/>
+                    onChange={handleChange}
+                    onFocus={() => validate()}/>
                     <span className="text-red-500 text-[10px] italic">{errors.email}</span>
             </div>
             <div className="mb-6 w-full">
@@ -104,7 +111,8 @@ const LoginForm = () => {
                 type="password" 
                 value={data.password}
                 placeholder="********"
-                onChange={handleChange}/>
+                onChange={handleChange}
+                onFocus={() => validate()}/>
                     <span className="text-red-500 text-[10px]">{errors.password}</span>
                 </div>
             <button

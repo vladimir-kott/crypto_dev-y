@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     const [currentUser, setUser] = useState();
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(true);
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     async function logIn({ email, password }) {
         try {
@@ -59,7 +59,8 @@ const AuthProvider = ({ children }) => {
     function logOut() {
         localStorageService.removeAuthData();
         setUser(null);
-        history.push("/");
+        navigate("/");
+        console.log('log out complite')
     }
     function randomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
