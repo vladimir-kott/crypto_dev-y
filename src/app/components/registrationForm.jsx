@@ -70,7 +70,7 @@ const RegistrationForm = () => {
         if (!isValid) return;
         try {
             await signUp(data);
-            navigate("/");
+            navigate("/user");
         } catch (error) {
             setErrors(error);
         }
@@ -90,7 +90,8 @@ const RegistrationForm = () => {
                     type="text"
                     value={data.name} 
                     placeholder="E-mail"
-                    onChange={handleChange}/>
+                    onChange={handleChange}
+                    onFocus={() => validate()}/>
                     <span className="text-red-500 text-[10px] italic">{errors.email}</span>
             </div>
             <div className="mb-6 w-full">
@@ -103,7 +104,8 @@ const RegistrationForm = () => {
                 type="password" 
                 value={data.password}
                 placeholder="********"
-                onChange={handleChange}/>
+                onChange={handleChange}
+                onFocus={() => validate()}/>
                     <span className="text-red-500 text-[10px]">{errors.password}</span>
                 </div>
             <button
