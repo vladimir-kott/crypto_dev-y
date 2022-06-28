@@ -33,6 +33,7 @@ function App() {
             }/>
             <Route path="logout" element={<LogOut/>} />
             <Route index element={<Main />}/>
+            <Route path="crypto_dev-y" element={<Navigate to="/" replace />} />
             <Route path="*" element={<p>There's nothing here: 404!</p>} />
           </Routes>
         </div>
