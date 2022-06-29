@@ -11,9 +11,11 @@ import ProtectedUserRoute from "./app/components/protectedUserRoute";
 import UserPanel from "./app/components/userPanel";
 import LogOut from "./app/components/logOut";
 import ProtectedAuth from "./app/components/protectedAuth";
+import CoingecoCoinListProvider from "./app/hooks/useCoingecoCoinList";
 
 function App() {
   return (<div>
+    <CoingecoCoinListProvider>
     <AuthProvider>
     <div className="App max-h-screen">
       <div className='flex flex-col items-center h-screen bg-gradient-to-tr from-[#EAECF4] to-[#E6E7FD] border-2 border-black'>
@@ -45,6 +47,7 @@ function App() {
       </div>
     </div>
     </AuthProvider>
+    </CoingecoCoinListProvider>
 
     <ToastContainer />
     </div>

@@ -1,15 +1,20 @@
 import React from "react";
 import RowTable from "./rowTable";
 import SearchBar from "./searchBar"
+import { useCoingecoCoinList } from "../hooks/useCoingecoCoinList";
 
 const Tab = () => {
 
-  
+    const {currentList} = useCoingecoCoinList()
+
+    console.log('ppi', currentList)
+
     return (
-        <table className="table-auto w-full border-2 border-sky-500 text-zinc-500">
+      
+        <table className="table-auto w-full text-zinc-500">
         <thead>
           <tr>
-           <th colSpan="4" className="border-2 border-rose-800" >
+           <th colSpan="4" className="">
             <SearchBar/>
             </th>
           </tr>
