@@ -1,20 +1,20 @@
 import React from 'react';
 import { BookmarkStar, BookmarkStarFill} from 'react-bootstrap-icons'
 
-const RowTable = () => {
+const RowTable = ({data}) => {
     return ( <>
         <td className="">
               <div className="flex flex-wrap items-center justify-center m-1">
-                <img className="w-[60px] h-[60px] rounded-full" src="https://www.w3schools.com/images/picture.jpg"/>
+                <img className="w-[50px] h-[50px] rounded-full" src={data.image}/>
                 <div className="flex flex-col ml-3 ">
-                  <span className="text-lg">BTC</span>
-                  <span className="text-xs">Bitcoin</span>
+                  <span className="text-lg">{data.name}</span>
+                  <span className="text-xs">{data.id}</span>
                 </div>
               </div>
             </td>
             <td className="">
               <div className="flex flex-col ml-3 ">
-                <span className="text-lg">$10000</span>
+                <span className="text-lg">$ {data.current_price}</span>
                 <span className="text-xs">1D</span>
               </div>
             </td>

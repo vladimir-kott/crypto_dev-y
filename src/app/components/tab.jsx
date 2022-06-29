@@ -7,7 +7,7 @@ const Tab = () => {
 
     const {currentList} = useCoingecoCoinList()
 
-    console.log('ppi', currentList)
+    console.log('list in table', currentList)
 
     return (
       
@@ -20,54 +20,14 @@ const Tab = () => {
           </tr>
         </thead>
         <tbody className="w-full">
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
-          <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
-            <RowTable/>
-          </tr>
+          {currentList? (
+            currentList.map((el) => {
+              return (
+              <tr className="bg-[#e1f2f9] hover:bg-[#d8f0fa] border-b-[3px]">
+                <RowTable data={el}/>
+              </tr>)
+            })
+          ):(console.log('err'))}
         </tbody>
       </table>
     );

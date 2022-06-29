@@ -35,13 +35,11 @@ const CoingecoCoinListProvider = ({ children }) => {
 
     async function getListCoin() {
         try {
-            const { coinsList } = await httpCoingecoCoinList.get().then(result => {
-                return result.data
+            await httpCoingecoCoinList.get().then(result => {
+                setList(result.data);
             }).catch(error => {
                 errorCatcher(error);
             });
-            setList(coinsList);
-            console.log(coinsList)
         } catch (error) {
             errorCatcher(error);
         } finally {
@@ -61,7 +59,7 @@ const CoingecoCoinListProvider = ({ children }) => {
             setLoading(false);
         }*/
         getListCoin();
-        console.log('curr', currentList)
+        //console.log(currentList)
     }, []);
 
     return (
