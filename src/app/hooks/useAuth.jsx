@@ -7,6 +7,7 @@ import localStorageService, {
     setTokens
 } from "../services/localStorage.service";
 import { useNavigate } from "react-router-dom";
+import Preloader from "../components/preloader";
 
 export const httpAuth = axios.create({
     baseURL: "https://identitytoolkit.googleapis.com/v1/",
@@ -141,7 +142,7 @@ const AuthProvider = ({ children }) => {
         <AuthContext.Provider
             value={{ signUp, logIn, currentUser, logOut, updateUserData }}
         >
-            {!isLoading ? children : "Loading..."}
+            {!isLoading ? children : <Preloader/>}
         </AuthContext.Provider>
     );
 };

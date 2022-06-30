@@ -7,17 +7,16 @@ import localStorageService, {
     setTokens
 } from "../services/localStorage.service";
 import { useNavigate } from "react-router-dom";
+import Preloader from "../components/preloader"
 
 export const httpCoingecoCoinList = axios.create({
     baseURL: "https://api.coingecko.com/api/v3/coins/markets?",
     params: {
         vs_currency: 'usd',
         order: 'market_cap_desc',
-        per_page: 50,
+        per_page: 10,
         page: 1,
         sparkline: false
-        /*'vs_currency=usd&order=market_cap_desc&per_page=50&page=2&sparkline=false'*/
-        /*key: process.env.REACT_APP_FIREBASE_KEY*/
     }
 });
 const CoingecoCoinListContext = React.createContext();
@@ -31,11 +30,15 @@ const CoingecoCoinListProvider = ({ children }) => {
     const [currentList, setList] = useState();
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(true);
+    const [page, setPage] = useState()
     const navigate = useNavigate();
 
     async function getListCoin() {
         try {
-            await httpCoingecoCoinList.get().then(result => {
+            await httpCoingecoCoinList.get(httpCoingecoCoinList.baseURL, {params: {
+                page: page
+            }}).then(result => {
+                //console.log(result)
                 setList(result.data);
             }).catch(error => {
                 errorCatcher(error);
@@ -64,9 +67,9 @@ const CoingecoCoinListProvider = ({ children }) => {
 
     return (
         <CoingecoCoinListContext.Provider
-            value={{ currentList }}
+            value={{ currentList, page, setPage, getListCoin }}
         >
-            {!isLoading ? children : "Loading..."}
+            {!isLoading ? children : <Preloader/>}
         </CoingecoCoinListContext.Provider>
     );
 }
