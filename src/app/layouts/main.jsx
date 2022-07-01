@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 /*import Table from "../components/table"*/
 /*import Ticker from "../components/ticker";*/
 import Tab from "../components/tab";
+import { useCoingecoCoinList } from "../hooks/useCoingecoCoinList";
 
 const Main = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const reference = useRef(null);
-    const referencetab = useRef(null);
+    const {getListCoin} = useCoingecoCoinList()
+    const [dataLoadingIndicator, setDataLoadingIndicator] = useState(false)
 
     const handleScroll = () => {
         const scrollTop = reference.current.scrollTop // height of top scrolled table 
@@ -17,10 +19,12 @@ const Main = () => {
         //.log('viewport', scrollview)
        // console.log('client Height', scrollTopTab)
        const totalHaight = Math.round(scrollTop + scrollview)
-       const mainHeight = scrollTopTab - 3
-       if (totalHaight > mainHeight){
-        console.log('totalHaight', totalHaight)
-        console.log('mainheight', mainHeight)
+       const mainHeight = scrollTopTab - 1
+       //console.log('totalHaight', totalHaight)
+       // console.log('mainheight', mainHeight)
+       if (totalHaight >= mainHeight){
+        //console.log('yes')
+        getListCoin()
        }
     };
 
@@ -40,7 +44,7 @@ const Main = () => {
             rounded-lg border-2
             bg-gradient-to-tr from-[#fffeff] to-[#e2f3fd]"
             onScroll={handleScroll} ref={reference}>
-                <Tab/>
+                <Tab />
             </div>
         </>
     );

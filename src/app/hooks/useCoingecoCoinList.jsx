@@ -14,8 +14,8 @@ export const httpCoingecoCoinList = axios.create({
     params: {
         vs_currency: 'usd',
         order: 'market_cap_desc',
-        per_page: 10,
-        page: 1,
+        per_page: 50,
+        page: null,
         sparkline: false
     }
 });
@@ -27,19 +27,20 @@ export const useCoingecoCoinList = () => {
 
 const CoingecoCoinListProvider = ({ children }) => {
 
-    const [currentList, setList] = useState();
+    const [currentList, setList] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(true);
-    const [page, setPage] = useState()
+    const [pageIndex, setPageIndex] = useState(1)
     const navigate = useNavigate();
 
     async function getListCoin() {
         try {
             await httpCoingecoCoinList.get(httpCoingecoCoinList.baseURL, {params: {
-                page: page
+                page: pageIndex
             }}).then(result => {
-                //console.log(result)
-                setList(result.data);
+                let gluedList = [ ...currentList, ...result.data ]
+                setList(gluedList)
+                setPageIndex(pageIndex + 1)
             }).catch(error => {
                 errorCatcher(error);
             });
@@ -67,7 +68,7 @@ const CoingecoCoinListProvider = ({ children }) => {
 
     return (
         <CoingecoCoinListContext.Provider
-            value={{ currentList, page, setPage, getListCoin }}
+            value={{ currentList, pageIndex, setPageIndex, getListCoin }}
         >
             {!isLoading ? children : <Preloader/>}
         </CoingecoCoinListContext.Provider>
