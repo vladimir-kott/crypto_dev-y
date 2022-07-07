@@ -77,7 +77,7 @@ body::-webkit-scrollbar-thumb:active {
   100% { transform: translate3d(-330%, 0, 0); }
 }
 .hmove { animation: tickerh linear 40s infinite; }
-.hmove:hover { animation-play-state: paused; }
+/*.hmove:hover { animation-play-state: paused; }*/
 
 @media only screen and (max-width: 768px) {
   .hmove { animation-duration: 20s; }

@@ -1,10 +1,21 @@
 import React, {useState, useEffect} from "react";
+import { useCoingecoTiker } from "../hooks/useCoingecoTiker";
 
 const TickerComponent = () => {
-    const [string, setString] = useState("");
+
+    const [topTrending, setTopTrending] = useState("");
+    const [btcMarketCap, setBtcMarketCap] = useState("");
+    const [usdMarketCap, setUsdMarketCap] = useState("");
+    const [defiTopCoin, setDefiTopCoin] = useState("");
+
+    const {trending, global, defi} = useCoingecoTiker()
 
     useEffect(() => {
-        setString('Aliquam consequat varius consequat.')
+        setTopTrending('Top trending coin: ' + trending.data.coins[0].item.name)
+        setBtcMarketCap('BTC market cap ~ ' + Math.round(global.data.data.total_market_cap.btc))
+        setUsdMarketCap('USD market cap ~ ' + Math.round(global.data.data.total_market_cap.usd))
+        setDefiTopCoin('Top DeFi coin: ' + defi.data.data.top_coin_name)
+        console.log(trending, global, defi)
     }, []);
 
     /*console.log(string)*/
@@ -15,10 +26,10 @@ const TickerComponent = () => {
         text-zinc-500">
        <div className="overflow-hidden w-full">{/*hwrap*/}
          <div className="hmove">{/*hmove*/}
-            <div className="hitem">{string}</div>
-            <div className="hitem">Aliquam consequat varius consequat.</div>
-            <div className="hitem">{string}</div>
-            <div className="hitem">Pellentesque auctor molestie orci.</div>
+            <div className="hitem">{topTrending}</div>
+            <div className="hitem">{btcMarketCap}</div>
+            <div className="hitem">{defiTopCoin}</div>
+            <div className="hitem">{usdMarketCap}</div>
          </div>
         </div>
     </div>
