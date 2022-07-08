@@ -13,15 +13,21 @@ import LogOut from "./app/components/logOut";
 import ProtectedAuth from "./app/components/protectedAuth";
 import CoingecoCoinListProvider from "./app/hooks/useCoingecoCoinList";
 import CoingecoTikertProvider from "./app/hooks/useCoingecoTiker"
+/*import ThemeProvider from "./app/hooks/useTheme"*/
+import { useTheme } from "./app/hooks/useTheme";
 
 function App() {
+
+  const {theme} = useTheme()
+
   return (<div>
+    
     <CoingecoCoinListProvider>
     <AuthProvider>
     <div className="App max-h-screen">
-      <div className='flex flex-col items-center h-screen bg-gradient-to-tr from-[#EAECF4] to-[#E6E7FD] border-2 border-black'>
+      <div className={`flex flex-col items-center h-screen ${theme? (`bg-gradient-to-tr from-[#EAECF4] to-[#E6E7FD]`):(`bg-gradient-to-tr from-[#58595c] to-[#595a76]`)}`}> 
         <div className="box-border flex sam:flex-col sus:flex-col scm:flex-col sxm:flex-col sm:flex-row justify-center items-center gap-x-[5px] w-full max-w-[1920px] border-2 border-black h-full">
-        <div className="border-2 border-rose-400 text-center leading-loose text-sm sm:p-[20px] sus:p-[2px] sam:p-[7px] scm:p-[7px] sxm:p-[7px] br-black w-full h-full">
+        <div className="text-center leading-loose text-sm sm:p-[20px] sus:p-[2px] sam:p-[7px] scm:p-[7px] sxm:p-[7px] br-black w-full h-full"> {/*border-2 border-rose-400*/}
         <CoingecoTikertProvider>
           <TikerComponent/>
         </CoingecoTikertProvider>
@@ -51,6 +57,7 @@ function App() {
     </div>
     </AuthProvider>
     </CoingecoCoinListProvider>
+    
 
     <ToastContainer />
     </div>

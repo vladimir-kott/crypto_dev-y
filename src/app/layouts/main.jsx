@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 /*import Ticker from "../components/ticker";*/
 import Tab from "../components/tab";
 import { useCoingecoCoinList } from "../hooks/useCoingecoCoinList";
+import { useTheme } from "../hooks/useTheme";
 
 const Main = () => {
 
@@ -10,6 +11,8 @@ const Main = () => {
     const reference = useRef(null);
     const {getListCoin} = useCoingecoCoinList()
     const [dataLoadingIndicator, setDataLoadingIndicator] = useState(false)
+
+    const {theme} = useTheme()
 
     const handleScroll = () => {
         const scrollTop = reference.current.scrollTop // height of top scrolled table 
@@ -39,10 +42,11 @@ const Main = () => {
 
     return (
         <>
-            <div className="over overflow-y-scroll 
+            <div className={`over overflow-y-scroll 
             sus:h-[calc(100vh-130px)] sam:h-[calc(100vh-140px)] scm:h-[calc(100vh-150px)] sxm:h-[calc(100vh-150px)] sm:h-[calc(100vh-100px)]
             rounded-lg border-2
-            bg-gradient-to-tr from-[#fffeff] to-[#e2f3fd]"
+            ${theme ? (`bg-gradient-to-tr from-[#fffeff] to-[#e2f3fd]`):
+            (`bg-gradient-to-tr from-[#cbbacb] to-[#80a9c1]`)}`}
             onScroll={handleScroll} ref={reference}>
                 <Tab />
             </div>
