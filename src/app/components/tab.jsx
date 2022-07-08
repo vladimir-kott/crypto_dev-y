@@ -10,7 +10,7 @@ const Tab = () => {
     const {theme} = useTheme()
 
     return (
-        <table className="table-auto w-full text-zinc-500">
+        <table className="table w-full text-zinc-500">
         <thead>
           <tr>
            <th colSpan="4" className="">

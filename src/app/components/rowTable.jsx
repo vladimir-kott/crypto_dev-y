@@ -7,8 +7,8 @@ const RowTable = ({data}) => {
     const {theme} = useTheme()
 
     return ( <>
-        <td className="">
-              <div className="flex flex-wrap items-center justify-center m-1">
+            <td className="">
+              <div className="flex flex-wrap items-center m-1">
                 <img className="w-[50px] h-[50px] rounded-full" src={data.image}/>
                 <div className="flex flex-col ml-3 ">
                   <span className="text-lg">{data.name}</span>
@@ -17,13 +17,13 @@ const RowTable = ({data}) => {
               </div>
             </td>
             <td className="">
-              <div className="flex flex-col ml-3 ">
+              <div className="flex justify-start flex-col ml-3 ">
                 <span className="text-lg">$ {data.current_price}</span>
                 <span className="text-xs">1D</span>
               </div>
             </td>
             <td className="">
-              <div className="flex flex-col ml-3">
+              <div className="flex justify-center flex-col ml-3">
                 <span className="text-xs">+0.91 1H</span>
                 <span className="text-xs">1D</span>
                 <span className="text-xs">7D</span>
