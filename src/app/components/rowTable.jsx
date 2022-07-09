@@ -7,17 +7,17 @@ const RowTable = ({data}) => {
     const {theme} = useTheme()
 
     return ( <>
-            <td className="">
-              <div className="flex flex-wrap items-center m-1">
+            <td className="">{/*border-2 border-rose-400*/}
+              <div className="flex flex-wrap justify-center items-center m-1">{/*flex flex-wrap items-center*/}
+              <div className="flex flex-col items-center ml-3 ">
                 <img className="w-[50px] h-[50px] rounded-full" src={data.image}/>
-                <div className="flex flex-col ml-3 ">
-                  <span className="text-lg">{data.name}</span>
-                  <span className="text-xs">{data.id}</span>
+                <span className="text-lg">{data.name}</span>
+                <span className="text-xs">{data.id}</span>
                 </div>
               </div>
             </td>
             <td className="">
-              <div className="flex justify-start flex-col ml-3 ">
+              <div className="flex justify-start flex-col ml-3 ">{/*flex justify-start flex-col*/}
                 <span className="text-lg">$ {data.current_price}</span>
                 <span className="text-xs">1D</span>
               </div>

@@ -8,7 +8,7 @@ export const useTheme= () => {
 
 const ThemeProvider = ({ children }) => {
 
-    const [theme, setTheme] = useState(false);
+    const [theme, setTheme] = useState(true);
 
     function ChangeTheme() {
         setTheme(!theme)

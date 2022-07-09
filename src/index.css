@@ -69,6 +69,26 @@ body::-webkit-scrollbar-thumb:active {
   box-sizing: border-box;
   text-align: left;           
 }
+
+.mainPaddingSM{
+  padding: 20px, 0px, 20px, 20px;
+}
+
+.mainPaddingSUS{
+  padding: 2px, 0px, 2px, 2px;
+}
+
+.mainPaddingSAM{
+  padding: 7px, 0px, 7px, 7px;
+}
+
+.mainPaddingSCM{
+  padding: 7px, 0px, 7px, 7px;
+}
+
+.mainPaddingSXM{
+  padding: 7px, 0px, 7px, 7px;
+}
  
 /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
 /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */

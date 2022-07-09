@@ -27,7 +27,10 @@ function App() {
     <div className="App max-h-screen">
       <div className={`flex flex-col items-center h-screen ${theme? (`bg-gradient-to-tr from-[#EAECF4] to-[#E6E7FD]`):(`bg-gradient-to-tr from-[#58595c] to-[#595a76]`)}`}> 
         <div className="box-border flex sam:flex-col sus:flex-col scm:flex-col sxm:flex-col sm:flex-row justify-center items-center gap-x-[5px] w-full max-w-[1920px] border-2 border-black h-full">
-        <div className="text-center leading-loose text-sm sm:p-[20px] sus:p-[2px] sam:p-[7px] scm:p-[7px] sxm:p-[7px] br-black w-full h-full"> {/*border-2 border-rose-400*/}
+        <div className="text-center leading-loose text-sm
+        sm:py-[20px] sus:py-[2px] sam:py-[7px] scm:py-[7px] sxm:py-[7px]
+        sm:pl-[20px] sus:pl-[2px] sam:pl-[7px] scm:pl-[7px] sxm:pl-[7px]
+        br-black w-full h-full"> {/*border-2 border-rose-400*/}
         <CoingecoTikertProvider>
           <TikerComponent/>
         </CoingecoTikertProvider>
