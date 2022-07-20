@@ -1,8 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
+import { useCoingecoCoinList } from "../hooks/useCoingecoCoinList";
 import { useTheme } from "../hooks/useTheme";
 
 const SearchBar = () => {
     const {theme} = useTheme()
+    const {setSearch} = useCoingecoCoinList()
+    const {getSeachCoin} = useCoingecoCoinList()
+    /*const {getSearchListCoin} = useCoingecoSearch()*/
+
+    const handleChange = (e) => {
+        if ((e.target.value).trim().length >= 1){
+            console.log('f')
+            setSearch(e.target.value)
+            getSeachCoin()
+        }
+        else{
+            setSearch('')
+        }
+    }
+
     return ( 
         <div className="p-1 float-right flex">
             <label htmlFor="table-search" className="sr-only">Search</label>
@@ -15,7 +31,8 @@ const SearchBar = () => {
                 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 
                 ${theme ? (`bg-gray-50 text-gray-900`):(`bg-[#acacaa] text-gray-200`)}`} 
-                placeholder="Search for items"/>
+                placeholder="Search for items"
+                onChange={handleChange}/>
             </div>
         </div>
      );

@@ -31,6 +31,8 @@ const CoingecoCoinListProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const [pageIndex, setPageIndex] = useState(1)
+    const [search, setSearch] = useState('')
+    const [searchList, setSearchList] = useState('')
     const navigate = useNavigate();
 
     async function getListCoin() {
@@ -51,6 +53,21 @@ const CoingecoCoinListProvider = ({ children }) => {
         }
     }
 
+    async function getSeachCoin() {
+        try {
+            await axios.get(`https://api.coingecko.com/api/v3/search?query=${search}`).then(result => {
+                //console.log(result.data.coins.slice(0, 4))
+                setSearchList(result.data.coins.slice(0, 4))
+            }).catch(error => {
+                errorCatcher(error);
+            });
+        } catch (error) {
+            errorCatcher(error);
+        } finally {
+            //setLoading(false);
+        }
+    }
+
     function errorCatcher(error) {
         const { message } = error/*.response.data*/;
         setError(message);
@@ -68,7 +85,7 @@ const CoingecoCoinListProvider = ({ children }) => {
 
     return (
         <CoingecoCoinListContext.Provider
-            value={{ currentList, pageIndex, setPageIndex, getListCoin }}
+            value={{ searchList, currentList, pageIndex, setSearch, setPageIndex, getListCoin, getSeachCoin }}
         >
             {!isLoading ? children : <Preloader/>}
         </CoingecoCoinListContext.Provider>
