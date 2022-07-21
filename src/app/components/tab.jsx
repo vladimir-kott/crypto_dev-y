@@ -22,24 +22,16 @@ const Tab = () => {
           </tr>
         </thead>
         <tbody className="w-full">
-          {currentList&&searchList? (currentList.map((el) => {
+          {currentList? (currentList.map((el) => {
               return (
               <tr key={el.id} className={`border-b-[3px] ${theme ? (`bg-[#e1f2f9] hover:bg-[#d8f0fa]`):
               (`bg-[#aebec5] hover:bg-[#94c6dd]`)}`}>
-                {console.log(el)}
                 <RowTable data={el}/>
               </tr>)
             })
-          ):(
-            searchList.map((el) => {
-              return (
-              <tr key={el.id} className={`border-b-[3px] ${theme ? (`bg-[#e1f2f9] hover:bg-[#d8f0fa]`):
-              (`bg-[#aebec5] hover:bg-[#94c6dd]`)}`}>
-                {console.log(el)}
-                <RowTable data={el}/>
-              </tr>)
-            })
-          )}
+          ):(console.log('error'))
+            
+          }
         </tbody>
       </table>
     );

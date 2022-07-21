@@ -14,7 +14,7 @@ export const httpCoingecoCoinList = axios.create({
     params: {
         vs_currency: 'usd',
         order: 'market_cap_desc',
-        per_page: 50,
+        per_page: 100,
         page: null,
         sparkline: false
     }
@@ -33,6 +33,7 @@ const CoingecoCoinListProvider = ({ children }) => {
     const [pageIndex, setPageIndex] = useState(1)
     const [search, setSearch] = useState('')
     const [searchList, setSearchList] = useState('')
+    const [favoriteCoin, setFavoriteCoin] = useState()
     const navigate = useNavigate();
 
     async function getListCoin() {
@@ -53,7 +54,7 @@ const CoingecoCoinListProvider = ({ children }) => {
         }
     }
 
-    async function getSeachCoin() {
+    /*async function getSeachCoin() {
         try {
             await axios.get(`https://api.coingecko.com/api/v3/search?query=${search}`).then(result => {
                 //console.log(result.data.coins.slice(0, 4))
@@ -66,6 +67,23 @@ const CoingecoCoinListProvider = ({ children }) => {
         } finally {
             //setLoading(false);
         }
+    }*/
+
+    function sort (id) {
+        //console.log('handlClick', currentList, id)
+        let delIndex = ''
+        let favoriteItem = currentList.filter((value, index, arr)=>{
+            if(value.id === id) {
+                delIndex = index  
+            }
+            return value.id === id;
+        })
+        //let newCurrentList = currentList.splice(delIndex, 1)
+        delete currentList[delIndex]
+        setList(currentList)
+        console.log('newCurrentList', currentList)
+        console.log(favoriteItem)
+        console.log('delIndex', delIndex)
     }
 
     function errorCatcher(error) {
@@ -85,7 +103,7 @@ const CoingecoCoinListProvider = ({ children }) => {
 
     return (
         <CoingecoCoinListContext.Provider
-            value={{ searchList, currentList, pageIndex, setSearch, setPageIndex, getListCoin, getSeachCoin }}
+            value={{ searchList, currentList, pageIndex, setSearch, setPageIndex, getListCoin, sort /*getSeachCoin*/ }}
         >
             {!isLoading ? children : <Preloader/>}
         </CoingecoCoinListContext.Provider>
